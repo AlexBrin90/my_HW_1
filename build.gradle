@@ -1,0 +1,25 @@
+plugins {
+    id 'java'
+}
+
+group 'org.example'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testImplementation 'com.codeborne:selenide:6.19.1' // Основная зависимость Selenide
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.10.0' // JUnit 5 для написания тестов
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.10.0' // JUnit 5 движок для выполнения тестов
+    testImplementation 'org.slf4j:slf4j-simple:2.0.9' // Логирование для Selenide
+}
+
+test {
+    useJUnitPlatform() // Использование JUnit Platform для запуска тестов
+}
+
+tasks.withType(JavaCompile) {
+    options.encoding = 'UTF-8'
+}
